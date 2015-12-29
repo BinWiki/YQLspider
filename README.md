@@ -46,3 +46,7 @@ $.YQLspider({
 
 
 注意`"results":null`这样的代码，可能会导致大家的success方法出错，原因很简单，jQuery YQLspider插件关注的是results这一对象，而JavaScript对undefined、null进行操作会报错！
+
+
+## 反馈
+- 如果你遇到什么问题，请反馈，欢迎关注！
