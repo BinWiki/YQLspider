@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Yqlspider by devtip</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Yqlspider</h1>
+      <h2 class="project-tagline">使用YQLspider模拟服务器请求，或者抓取页面数据</h2>
+      <a href="https://github.com/devtip/YQLspider" class="btn">View on GitHub</a>
+      <a href="https://github.com/devtip/YQLspider/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/devtip/YQLspider/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="jquery-yqlspider插件" class="anchor" href="#jquery-yqlspider%E6%8F%92%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>jQuery YQLspider插件</h1>
+
+<h2>
+<a id="这个插件能干什么--" class="anchor" href="#%E8%BF%99%E4%B8%AA%E6%8F%92%E4%BB%B6%E8%83%BD%E5%B9%B2%E4%BB%80%E4%B9%88--" aria-hidden="true"><span class="octicon octicon-link"></span></a>这个插件能干什么? :-)</h2>
+
+<ul>
+<li>模拟服务器请求，如果你不喜欢操作数据库的话！</li>
+<li>抓取页面数据</li>
+</ul>
+
+<h2>
+<a id="使用说明" class="anchor" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用说明</h2>
+
+<blockquote>
+<p>非常容易配置，只需3个参数</p>
+
+<ul>
+<li>url对应的是要抓取页面的地址</li>
+<li>selector代表抓取页面的选择器，</li>
+<li>success为找取数据成功时的回调！</li>
+</ul>
+</blockquote>
+
+<h2>
+<a id="如何使用" class="anchor" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>如何使用？</h2>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// 从jb51.net获取JavaScript模块的pdf书籍链接</span>
+<span class="pl-smi">$</span>.<span class="pl-en">YQLspider</span>({
+    url<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>http://www.jb51.net/books/<span class="pl-pds">'</span></span>,
+    selector<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>.panel-1 .list li a.title<span class="pl-pds">'</span></span>,
+    <span class="pl-en">success</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">r</span>){
+        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>-----*****从jb51.net找取数据*****-----<span class="pl-pds">'</span></span>);
+
+        <span class="pl-c">// 数据源</span>
+        <span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">r</span>.<span class="pl-smi">a</span>;
+        <span class="pl-k">var</span> host <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>http://www.jb51.net<span class="pl-pds">'</span></span>;
+        <span class="pl-k">var</span> htmlStrArr <span class="pl-k">=</span> []
+        <span class="pl-smi">$</span>.<span class="pl-en">each</span>(data, <span class="pl-k">function</span>(<span class="pl-smi">idx</span>, <span class="pl-smi">val</span>){
+            <span class="pl-k">var</span> html <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;li&gt;&lt;a href="<span class="pl-pds">'</span></span><span class="pl-k">+</span> host <span class="pl-k">+</span> <span class="pl-v">this</span>.<span class="pl-c1">href</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>"&gt;<span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-v">this</span>.<span class="pl-c1">title</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;/a&gt;&lt;/li&gt;<span class="pl-pds">'</span></span>;
+            <span class="pl-smi">htmlStrArr</span>.<span class="pl-c1">push</span>(html);
+        });
+        <span class="pl-k">var</span> htmlstr <span class="pl-k">=</span> <span class="pl-smi">htmlStrArr</span>.<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>);
+        <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#navList<span class="pl-pds">'</span></span>).<span class="pl-en">html</span>(htmlStrArr);
+
+    }
+});</pre></div>
+
+<h2>
+<a id="注意" class="anchor" href="#%E6%B3%A8%E6%84%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>注意</h2>
+
+<p>即使url或者selector出错，YQL服务器最终也不会出错,但可能会返回这样的结果:</p>
+
+<div class="highlight highlight-source-json"><pre>/**/jQuery<span class="pl-c1">214029177518015036474</span>_<span class="pl-c1">1451403767322</span>({<span class="pl-s"><span class="pl-pds">"</span>query<span class="pl-pds">"</span></span>:{<span class="pl-s"><span class="pl-pds">"</span>count<span class="pl-pds">"</span></span>:<span class="pl-c1">1</span>,<span class="pl-s"><span class="pl-pds">"</span>created<span class="pl-pds">"</span></span>:<span class="pl-s"><span class="pl-pds">"</span>2015-12-29T15:42:58Z<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>lang<span class="pl-pds">"</span></span>:<span class="pl-s"><span class="pl-pds">"</span>en-US<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>results<span class="pl-pds">"</span></span>:{<span class="pl-s"><span class="pl-pds">"</span>results<span class="pl-pds">"</span></span>:<span class="pl-c1">null</span>}}}});</pre></div>
+
+<p>注意<code>"results":null</code>这样的代码，可能会导致大家的success方法出错，原因很简单，jQuery YQLspider插件关注的是results这一对象，而JavaScript对undefined、null进行操作会报错！</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/devtip/YQLspider">Yqlspider</a> is maintained by <a href="https://github.com/devtip">devtip</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
