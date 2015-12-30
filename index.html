@@ -22,15 +22,9 @@
       <h1>
 <a id="jquery-yqlspider插件" class="anchor" href="#jquery-yqlspider%E6%8F%92%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>jQuery YQLspider插件</h1>
 
-<p><a href="index.html">代码查看</a></p>
-
-<h2>
-<a id="这个插件能干什么--" class="anchor" href="#%E8%BF%99%E4%B8%AA%E6%8F%92%E4%BB%B6%E8%83%BD%E5%B9%B2%E4%BB%80%E4%B9%88--" aria-hidden="true"><span class="octicon octicon-link"></span></a>这个插件能干什么? :-)</h2>
-
-<ul>
-<li>模拟服务器请求，如果你不喜欢操作数据库的话！</li>
-<li>抓取页面数据</li>
-</ul>
+<blockquote>
+<p>jQuery YQLspider插件用于模拟服务器请求，如果你不喜欢操作数据库的话！更重要的是你可以利用它抓取页面数据并将它同步到自己的数据库！！</p>
+</blockquote>
 
 <h2>
 <a id="使用说明" class="anchor" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用说明</h2>
@@ -72,11 +66,18 @@
 <h2>
 <a id="注意" class="anchor" href="#%E6%B3%A8%E6%84%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>注意</h2>
 
-<p>即使url或者selector出错，YQL服务器最终也不会出错,但可能会返回这样的结果:</p>
+<p>即使url或者selector出错，YQL服务器最终可能会返回这样的结果:</p>
 
 <div class="highlight highlight-source-json"><pre>/**/jQuery<span class="pl-c1">214029177518015036474</span>_<span class="pl-c1">1451403767322</span>({<span class="pl-s"><span class="pl-pds">"</span>query<span class="pl-pds">"</span></span>:{<span class="pl-s"><span class="pl-pds">"</span>count<span class="pl-pds">"</span></span>:<span class="pl-c1">1</span>,<span class="pl-s"><span class="pl-pds">"</span>created<span class="pl-pds">"</span></span>:<span class="pl-s"><span class="pl-pds">"</span>2015-12-29T15:42:58Z<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>lang<span class="pl-pds">"</span></span>:<span class="pl-s"><span class="pl-pds">"</span>en-US<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>results<span class="pl-pds">"</span></span>:{<span class="pl-s"><span class="pl-pds">"</span>results<span class="pl-pds">"</span></span>:<span class="pl-c1">null</span>}}}});</pre></div>
 
-<p>注意<code>"results":null</code>这样的代码，可能会导致大家的success方法出错，原因很简单，jQuery YQLspider插件关注的是results这一对象，而JavaScript对undefined、null进行操作会报错！</p>
+<p>注意<code>"results":null</code>这样的代码，可能会导致大家的success回调方法出错，原因很简单，jQuery YQLspider插件关注的是results这一对象，而JavaScript对undefined、null进行操作会报错！</p>
+
+<h2>
+<a id="反馈" class="anchor" href="#%E5%8F%8D%E9%A6%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>反馈</h2>
+
+<ul>
+<li>本插件代码量非常少，源代码都在js目录下，压缩版本在dist目录下！如若遇到什么问题，请向我反馈，欢迎关注！</li>
+</ul>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/devtip/YQLspider">Yqlspider</a> is maintained by <a href="https://github.com/devtip">devtip</a>.</span>
