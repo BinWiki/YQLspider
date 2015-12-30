@@ -23,7 +23,7 @@
 <a id="jquery-yqlspider插件" class="anchor" href="#jquery-yqlspider%E6%8F%92%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>jQuery YQLspider插件</h1>
 
 <blockquote>
-<p>jQuery YQLspider插件用于模拟服务器请求，如果你不喜欢操作数据库的话！更重要的是你可以利用它抓取页面数据并将它同步到自己的数据库！！</p>
+<p>jQuery YQLspider插件用于模拟服务器请求，如果你不喜欢操作数据库的话！更重要的是你可以利用它抓取页面数据并将它同步到自己的数据库！！<a href="http://devtip.github.io/YQLspider/index.html">项目地址</a></p>
 </blockquote>
 
 <h2>
@@ -35,7 +35,7 @@
 <ul>
 <li>url对应的是要抓取页面的地址</li>
 <li>selector代表抓取页面的选择器，</li>
-<li>success为找取数据成功时的回调！</li>
+<li>success为数据抓取成功时的回调！</li>
 </ul>
 </blockquote>
 
@@ -58,6 +58,8 @@
             <span class="pl-smi">htmlStrArr</span>.<span class="pl-c1">push</span>(html);
         });
         <span class="pl-k">var</span> htmlstr <span class="pl-k">=</span> <span class="pl-smi">htmlStrArr</span>.<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>);
+
+        <span class="pl-c">// 在对应的容器中填充拼接后的字符串</span>
         <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>#navList<span class="pl-pds">'</span></span>).<span class="pl-en">html</span>(htmlStrArr);
 
     }
