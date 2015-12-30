@@ -1,12 +1,14 @@
 # jQuery YQLspider插件
-> jQuery YQLspider插件用于模拟服务器请求，如果你不喜欢操作数据库的话！更重要的是你可以利用它抓取页面数据并将它同步到自己的数据库！！
+> jQuery YQLspider插件用于模拟服务器请求，如果你不喜欢操作数据库的话！更重要的是你可以利用它抓取页面数据并将它同步到自己的数据库！！[项目地址](http://devtip.github.io/YQLspider/index.html)
 
 
 ## 使用说明
 > 非常容易配置，只需3个参数
 - url对应的是要抓取页面的地址
 - selector代表抓取页面的选择器，
-- success为找取数据成功时的回调！
+- success为数据抓取成功时的回调！
+
+
 
 ## 如何使用？
 ``` javascript
@@ -26,6 +28,8 @@ $.YQLspider({
 			htmlStrArr.push(html);
 		});
 		var htmlstr = htmlStrArr.join('');
+
+		// 在对应的容器中填充拼接后的字符串
 		$('#navList').html(htmlStrArr);
 		
 	}
